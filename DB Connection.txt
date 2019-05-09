@@ -1,0 +1,12 @@
+public boolean dbconnection() throws SQLException, ClassNotFoundException {
+              Class.forName("oracle.jdbc.driver.OracleDriver");
+              Connection con = DriverManager.getConnection("jdbc:oracle:thin:@va10dx10v1-scan1.wellpoint.com:1525/EHMBRS1U","AD73684","YRn6#CP3");
+              Statement stmt = con.createStatement();
+              ResultSet  resultSet =stmt.executeQuery("select * from ehub_mbr_sds.memberinsights");
+              while (resultSet .next()) {
+                     System.out.println(resultSet .getString(1) + "  " + resultSet.getString(2) + "  " + resultSet.getString(3) + "  "
+                     + resultSet.getString(4) + "  " + resultSet.getString(5));
+              }
+              return true;
+              
+       }
